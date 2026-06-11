@@ -93,7 +93,7 @@ outline: none;
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="lcdNumber">
+   <widget class="QLCDNumber" name="lcdNumber1">
     <property name="geometry">
      <rect>
       <x>870</x>
@@ -101,6 +101,19 @@ outline: none;
       <width>191</width>
       <height>71</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl1">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>590</y>
+      <width>261</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
     </property>
    </widget>
   </widget>

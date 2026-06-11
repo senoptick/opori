@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(plc, &PlcNetwork::cycleTimeUpdated,
             this, [this](double value) {
-                ui->lcdNumber->display(value);
+                ui->lbl1->setNum(value);
             });
 }
 

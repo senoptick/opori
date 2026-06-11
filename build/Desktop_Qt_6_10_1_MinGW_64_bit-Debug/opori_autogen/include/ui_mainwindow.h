@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLCDNumber>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -26,7 +27,8 @@ public:
     QWidget *centralwidget;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
-    QLCDNumber *lcdNumber;
+    QLCDNumber *lcdNumber1;
+    QLabel *lbl1;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -82,9 +84,12 @@ public:
 "\n"
 ""));
         pushButton_2->setFlat(false);
-        lcdNumber = new QLCDNumber(centralwidget);
-        lcdNumber->setObjectName("lcdNumber");
-        lcdNumber->setGeometry(QRect(870, 430, 191, 71));
+        lcdNumber1 = new QLCDNumber(centralwidget);
+        lcdNumber1->setObjectName("lcdNumber1");
+        lcdNumber1->setGeometry(QRect(870, 430, 191, 71));
+        lbl1 = new QLabel(centralwidget);
+        lbl1->setObjectName("lbl1");
+        lbl1->setGeometry(QRect(890, 590, 261, 41));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -104,6 +109,7 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         pushButton->setText(QString());
         pushButton_2->setText(QString());
+        lbl1->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
     } // retranslateUi
 
 };
