@@ -48,6 +48,8 @@ template <> constexpr inline auto PlcNetwork::qt_create_metaobjectdata<qt_meta_t
         "error",
         "statusChanged",
         "status",
+        "cycleTimeUpdated",
+        "value",
         "onSocketConnected",
         "onSocketDisconnected",
         "onSocketReadyRead",
@@ -73,15 +75,19 @@ template <> constexpr inline auto PlcNetwork::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SignalData<void(const QString &)>(8, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::QString, 9 },
         }}),
+        // Signal 'cycleTimeUpdated'
+        QtMocHelpers::SignalData<void(double)>(10, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Double, 11 },
+        }}),
         // Slot 'onSocketConnected'
-        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onSocketDisconnected'
-        QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onSocketReadyRead'
         QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onSocketDisconnected'
+        QtMocHelpers::SlotData<void()>(13, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onSocketReadyRead'
+        QtMocHelpers::SlotData<void()>(14, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'onSocketError'
-        QtMocHelpers::SlotData<void(QAbstractSocket::SocketError)>(13, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { 0x80000000 | 14, 15 },
+        QtMocHelpers::SlotData<void(QAbstractSocket::SocketError)>(15, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 16, 17 },
         }}),
     };
     QtMocHelpers::UintData qt_properties {
@@ -111,17 +117,18 @@ void PlcNetwork::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 2: _t->dataReceived((*reinterpret_cast<std::add_pointer_t<QByteArray>>(_a[1]))); break;
         case 3: _t->errorOccurred((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
         case 4: _t->statusChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 5: _t->onSocketConnected(); break;
-        case 6: _t->onSocketDisconnected(); break;
-        case 7: _t->onSocketReadyRead(); break;
-        case 8: _t->onSocketError((*reinterpret_cast<std::add_pointer_t<QAbstractSocket::SocketError>>(_a[1]))); break;
+        case 5: _t->cycleTimeUpdated((*reinterpret_cast<std::add_pointer_t<double>>(_a[1]))); break;
+        case 6: _t->onSocketConnected(); break;
+        case 7: _t->onSocketDisconnected(); break;
+        case 8: _t->onSocketReadyRead(); break;
+        case 9: _t->onSocketError((*reinterpret_cast<std::add_pointer_t<QAbstractSocket::SocketError>>(_a[1]))); break;
         default: ;
         }
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 8:
+        case 9:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
@@ -140,6 +147,8 @@ void PlcNetwork::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         if (QtMocHelpers::indexOfMethod<void (PlcNetwork::*)(const QString & )>(_a, &PlcNetwork::errorOccurred, 3))
             return;
         if (QtMocHelpers::indexOfMethod<void (PlcNetwork::*)(const QString & )>(_a, &PlcNetwork::statusChanged, 4))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (PlcNetwork::*)(double )>(_a, &PlcNetwork::cycleTimeUpdated, 5))
             return;
     }
 }
@@ -163,14 +172,14 @@ int PlcNetwork::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 10;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 10;
     }
     return _id;
 }
@@ -203,5 +212,11 @@ void PlcNetwork::errorOccurred(const QString & _t1)
 void PlcNetwork::statusChanged(const QString & _t1)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 4, nullptr, _t1);
+}
+
+// SIGNAL 5
+void PlcNetwork::cycleTimeUpdated(double _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 5, nullptr, _t1);
 }
 QT_WARNING_POP

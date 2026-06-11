@@ -97,8 +97,14 @@ void PlcNetwork::onSocketDisconnected()
 void PlcNetwork::onSocketReadyRead()
 {
     QByteArray data = m_socket->readAll();
-    qDebug() << "PlcNetwork: Получено сырье:" << data;
-    emit dataReceived(data);
+    qDebug() << "PlcNetwork: Получено:" << data.toHex();
+
+    if (data.size() >= 4) {
+        float cycleTime;
+        memcpy(&cycleTime, data.constData(), sizeof(float));
+
+        emit cycleTimeUpdated(static_cast<double>(cycleTime));
+    }
 }
 
 void PlcNetwork::onSocketError(QAbstractSocket::SocketError socketError)

@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -25,6 +26,7 @@ public:
     QWidget *centralwidget;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
+    QLCDNumber *lcdNumber;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -80,6 +82,9 @@ public:
 "\n"
 ""));
         pushButton_2->setFlat(false);
+        lcdNumber = new QLCDNumber(centralwidget);
+        lcdNumber->setObjectName("lcdNumber");
+        lcdNumber->setGeometry(QRect(870, 430, 191, 71));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");

@@ -25,6 +25,7 @@ signals:
     void dataReceived(const QByteArray &data);
     void errorOccurred(const QString &error);
     void statusChanged(const QString &status);
+    void cycleTimeUpdated(double value);
 
 private:
     explicit PlcNetwork(QObject *parent = nullptr);

@@ -8,6 +8,11 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     plc = PlcNetwork::instance();
+
+    connect(plc, &PlcNetwork::cycleTimeUpdated,
+            this, [this](double value) {
+                ui->lcdNumber->display(value);
+            });
 }
 
 MainWindow::~MainWindow()
