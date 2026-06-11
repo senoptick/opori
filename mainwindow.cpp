@@ -9,10 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     plc = PlcNetwork::instance();
 
-    connect(plc, &PlcNetwork::cycleTimeUpdated,
-            this, [this](double value) {
-                ui->lbl1->setNum(value);
-            });
+    connect(plc, &PlcNetwork::dataReceived,
+            this, &MainWindow::onPlcDataReceived);
 }
 
 MainWindow::~MainWindow()
@@ -33,6 +31,10 @@ void MainWindow::on_pushButton_clicked()
     qDebug() << "Отправлено на PLC →" << packet.trimmed();
 }
 
+void MainWindow::onPlcDataReceived(const QByteArray &data)
+{
+    ui->lbl1->setText(QString::fromUtf8(data.toHex(' ')));
+}
 
 void MainWindow::on_pushButton_2_clicked()
 {

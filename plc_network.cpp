@@ -98,11 +98,7 @@ void PlcNetwork::onSocketReadyRead()
 {
     QByteArray data = m_socket->readAll();
     qDebug() << "PlcNetwork: Получено:" << data.toHex();
-    QByteArray raw = data.left(4);
-    std::reverse(raw.begin(), raw.end());
-    float cycleTime;
-    memcpy(&cycleTime, data.constData(), sizeof(float));
-    emit cycleTimeUpdated(static_cast<double>(cycleTime));
+    emit dataReceived(data);
 }
 
 void PlcNetwork::onSocketError(QAbstractSocket::SocketError socketError)
