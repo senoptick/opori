@@ -1,5 +1,13 @@
 <RCC>
-    <qresource prefix="/new/prefix1"/>
+    <qresource prefix="/new/prefix1">
+        <file>Resources/Frame 2.png</file>
+        <file>Resources/Group 32 (1).png</file>
+        <file>Resources/Group 32.png</file>
+        <file>Resources/Group 33 (1).png</file>
+        <file>Resources/Group 33.png</file>
+        <file>Resources/Group 43 (1).png</file>
+        <file>Resources/Group 43.png</file>
+    </qresource>
     <qresource prefix="/">
         <file>Resources/start_pressed.png</file>
         <file>Resources/stop_pressed.png</file>

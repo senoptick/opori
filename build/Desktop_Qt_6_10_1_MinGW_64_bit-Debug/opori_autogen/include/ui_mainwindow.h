@@ -11,7 +11,6 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -27,8 +26,8 @@ public:
     QWidget *centralwidget;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
-    QLCDNumber *lcdNumber1;
     QLabel *lbl1;
+    QLabel *label;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -41,10 +40,10 @@ public:
         centralwidget->setObjectName("centralwidget");
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(250, 450, 361, 191));
+        pushButton->setGeometry(QRect(1100, 727, 301, 251));
         pushButton->setFocusPolicy(Qt::FocusPolicy::NoFocus);
         pushButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"background-image: url(:/Resources/start_normal.png);\n"
+"background-image: url(:/new/prefix1/Resources/Group 33.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
 "border: none;\n"
@@ -52,7 +51,7 @@ public:
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"background-image: url(:/Resources/start_pressed.png);\n"
+"background-image: url(:/new/prefix1/Resources/Group 33 (1).png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
 "border: none;\n"
@@ -63,11 +62,11 @@ public:
         pushButton_2 = new QPushButton(centralwidget);
         pushButton_2->setObjectName("pushButton_2");
         pushButton_2->setEnabled(true);
-        pushButton_2->setGeometry(QRect(1309, 450, 361, 191));
+        pushButton_2->setGeometry(QRect(1510, 727, 301, 251));
         pushButton_2->setMouseTracking(false);
         pushButton_2->setFocusPolicy(Qt::FocusPolicy::NoFocus);
         pushButton_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"background-image: url(:/Resources/stop_normal.png);\n"
+"background-image: url(:/new/prefix1/Resources/Group 43.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
 "border: none;\n"
@@ -75,7 +74,7 @@ public:
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"background-image: url(:/Resources/stop_pressed.png);\n"
+"background-image: url(:/new/prefix1/Resources/Group 43 (1).png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
 "border: none;\n"
@@ -84,13 +83,21 @@ public:
 "\n"
 ""));
         pushButton_2->setFlat(false);
-        lcdNumber1 = new QLCDNumber(centralwidget);
-        lcdNumber1->setObjectName("lcdNumber1");
-        lcdNumber1->setGeometry(QRect(870, 430, 191, 71));
         lbl1 = new QLabel(centralwidget);
         lbl1->setObjectName("lbl1");
-        lbl1->setGeometry(QRect(890, 590, 261, 41));
+        lbl1->setGeometry(QRect(990, 180, 211, 61));
+        QFont font;
+        font.setPointSize(22);
+        lbl1->setFont(font);
+        label = new QLabel(centralwidget);
+        label->setObjectName("label");
+        label->setGeometry(QRect(0, 0, 1920, 1080));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/Resources/Frame 2.png")));
         MainWindow->setCentralWidget(centralwidget);
+        label->raise();
+        pushButton->raise();
+        pushButton_2->raise();
+        lbl1->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 1920, 22));
@@ -110,6 +117,7 @@ public:
         pushButton->setText(QString());
         pushButton_2->setText(QString());
         lbl1->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        label->setText(QString());
     } // retranslateUi
 
 };

@@ -17,10 +17,10 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>450</y>
-      <width>361</width>
-      <height>191</height>
+      <x>1100</x>
+      <y>727</y>
+      <width>301</width>
+      <height>251</height>
      </rect>
     </property>
     <property name="focusPolicy">
@@ -28,7 +28,7 @@
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-background-image: url(:/Resources/start_normal.png);
+background-image: url(:/new/prefix1/Resources/Group 33.png);
 background-repeat: no-repeat;
 background-position: center;
 border: none;
@@ -36,7 +36,7 @@ outline: none;
 }
 
 QPushButton:pressed {
-background-image: url(:/Resources/start_pressed.png);
+background-image: url(:/new/prefix1/Resources/Group 33 (1).png);
 background-repeat: no-repeat;
 background-position: center;
 border: none;
@@ -55,10 +55,10 @@ outline: none;
     </property>
     <property name="geometry">
      <rect>
-      <x>1309</x>
-      <y>450</y>
-      <width>361</width>
-      <height>191</height>
+      <x>1510</x>
+      <y>727</y>
+      <width>301</width>
+      <height>251</height>
      </rect>
     </property>
     <property name="mouseTracking">
@@ -69,7 +69,7 @@ outline: none;
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-background-image: url(:/Resources/stop_normal.png);
+background-image: url(:/new/prefix1/Resources/Group 43.png);
 background-repeat: no-repeat;
 background-position: center;
 border: none;
@@ -77,7 +77,7 @@ outline: none;
 }
 
 QPushButton:pressed {
-background-image: url(:/Resources/stop_pressed.png);
+background-image: url(:/new/prefix1/Resources/Group 43 (1).png);
 background-repeat: no-repeat;
 background-position: center;
 border: none;
@@ -93,29 +93,44 @@ outline: none;
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="lcdNumber1">
-    <property name="geometry">
-     <rect>
-      <x>870</x>
-      <y>430</y>
-      <width>191</width>
-      <height>71</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="lbl1">
     <property name="geometry">
      <rect>
-      <x>890</x>
-      <y>590</y>
-      <width>261</width>
-      <height>41</height>
+      <x>990</x>
+      <y>180</y>
+      <width>211</width>
+      <height>61</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>22</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>TextLabel</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1920</width>
+      <height>1080</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="res.qrc">:/new/prefix1/Resources/Frame 2.png</pixmap>
+    </property>
+   </widget>
+   <zorder>label</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>pushButton_2</zorder>
+   <zorder>lbl1</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -129,6 +144,8 @@ outline: none;
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

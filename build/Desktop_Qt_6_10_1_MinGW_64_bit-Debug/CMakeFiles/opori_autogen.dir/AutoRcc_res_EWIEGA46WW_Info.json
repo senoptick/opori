@@ -12,7 +12,14 @@
 		"C:/repos/opori/Resources/stop_pressed.png",
 		"C:/repos/opori/Resources/start_normal.png",
 		"C:/repos/opori/Resources/stop_normal.png",
-		"C:/repos/opori/Resources/start_pressed.png"
+		"C:/repos/opori/Resources/start_pressed.png",
+		"C:/repos/opori/Resources/Group 43 (1).png",
+		"C:/repos/opori/Resources/Group 43.png",
+		"C:/repos/opori/Resources/Group 33.png",
+		"C:/repos/opori/Resources/Group 32.png",
+		"C:/repos/opori/Resources/Group 32 (1).png",
+		"C:/repos/opori/Resources/Frame 2.png",
+		"C:/repos/opori/Resources/Group 33 (1).png"
 	],
 	"LOCK_FILE" : "C:/repos/opori/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/opori_autogen.dir/AutoRcc_res_EWIEGA46WW_Lock.lock",
 	"MULTI_CONFIG" : false,
