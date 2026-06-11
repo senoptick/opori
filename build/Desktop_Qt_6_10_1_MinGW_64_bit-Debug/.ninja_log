@@ -66,3 +66,11 @@
 891	6260	8028737165345739	CMakeFiles/opori.dir/main.cpp.obj	8bcba79f4a338333
 901	6392	8028737165431456	CMakeFiles/opori.dir/mainwindow.cpp.obj	f7cf6670549a9393
 6393	7131	8028737220358737	opori.exe	4643b6eab712b782
+91	1150	8028802500526022	opori_autogen/timestamp	c0b2220c9f56f6a0
+91	1150	8028802500526022	opori_autogen/mocs_compilation.cpp	c0b2220c9f56f6a0
+91	1150	8028802500526022	C:/repos/opori/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/opori_autogen/timestamp	c0b2220c9f56f6a0
+91	1150	8028802500526022	C:/repos/opori/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/opori_autogen/mocs_compilation.cpp	c0b2220c9f56f6a0
+1194	14937	8028802511548340	CMakeFiles/opori.dir/plc_network.cpp.obj	8ceadec118169262
+1154	15343	8028802511214808	CMakeFiles/opori.dir/main.cpp.obj	8bcba79f4a338333
+1174	15500	8028802511390773	CMakeFiles/opori.dir/mainwindow.cpp.obj	f7cf6670549a9393
+15500	15977	8028802654676173	opori.exe	4643b6eab712b782
