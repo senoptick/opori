@@ -30,7 +30,7 @@ private:
     Ui::MainWindow *ui;
 
     PlcNetwork   *plc = nullptr;
-
+    QByteArray m_buffer;
     void sendToPlc();
 };
 #endif // MAINWINDOW_H

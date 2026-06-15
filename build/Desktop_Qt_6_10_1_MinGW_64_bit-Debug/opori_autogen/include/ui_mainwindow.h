@@ -26,10 +26,11 @@ public:
     QWidget *centralwidget;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
-    QLabel *lbl1;
+    QLabel *lbl_CycleTime;
     QLabel *label;
     QLabel *lbl_CurrentTime;
     QLabel *lbl_CurrentDate;
+    QLabel *lbl_PartsCount;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -85,12 +86,12 @@ public:
 "\n"
 ""));
         pushButton_2->setFlat(false);
-        lbl1 = new QLabel(centralwidget);
-        lbl1->setObjectName("lbl1");
-        lbl1->setGeometry(QRect(990, 180, 211, 61));
+        lbl_CycleTime = new QLabel(centralwidget);
+        lbl_CycleTime->setObjectName("lbl_CycleTime");
+        lbl_CycleTime->setGeometry(QRect(990, 180, 211, 61));
         QFont font;
         font.setPointSize(22);
-        lbl1->setFont(font);
+        lbl_CycleTime->setFont(font);
         label = new QLabel(centralwidget);
         label->setObjectName("label");
         label->setGeometry(QRect(0, 0, 1920, 1080));
@@ -108,13 +109,18 @@ public:
         QFont font2;
         font2.setPointSize(12);
         lbl_CurrentDate->setFont(font2);
+        lbl_PartsCount = new QLabel(centralwidget);
+        lbl_PartsCount->setObjectName("lbl_PartsCount");
+        lbl_PartsCount->setGeometry(QRect(1290, 180, 211, 61));
+        lbl_PartsCount->setFont(font);
         MainWindow->setCentralWidget(centralwidget);
         label->raise();
         pushButton->raise();
         pushButton_2->raise();
-        lbl1->raise();
+        lbl_CycleTime->raise();
         lbl_CurrentTime->raise();
         lbl_CurrentDate->raise();
+        lbl_PartsCount->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 1920, 22));
@@ -133,10 +139,11 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         pushButton->setText(QString());
         pushButton_2->setText(QString());
-        lbl1->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        lbl_CycleTime->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         label->setText(QString());
         lbl_CurrentTime->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         lbl_CurrentDate->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        lbl_PartsCount->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
     } // retranslateUi
 
 };
