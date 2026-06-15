@@ -48,7 +48,8 @@ void MainWindow::onPlcDataReceived(const QByteArray &data)
 
     quint8 cmd = static_cast<quint8>(data[0]);
 
-    if (cmd == 5) { // telemetry
+    // if (cmd == 5) { // telemetry
+    if (true){
         quint32 cycleTime = 0;
         quint32 partsCount = 0;
 
