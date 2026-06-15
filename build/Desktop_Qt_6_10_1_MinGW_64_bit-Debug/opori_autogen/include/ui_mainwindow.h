@@ -28,6 +28,8 @@ public:
     QPushButton *pushButton_2;
     QLabel *lbl1;
     QLabel *label;
+    QLabel *lbl_CurrentTime;
+    QLabel *lbl_CurrentDate;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -93,11 +95,26 @@ public:
         label->setObjectName("label");
         label->setGeometry(QRect(0, 0, 1920, 1080));
         label->setPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/Resources/Frame 2.png")));
+        lbl_CurrentTime = new QLabel(centralwidget);
+        lbl_CurrentTime->setObjectName("lbl_CurrentTime");
+        lbl_CurrentTime->setGeometry(QRect(1775, -5, 181, 81));
+        QFont font1;
+        font1.setPointSize(24);
+        font1.setBold(true);
+        lbl_CurrentTime->setFont(font1);
+        lbl_CurrentDate = new QLabel(centralwidget);
+        lbl_CurrentDate->setObjectName("lbl_CurrentDate");
+        lbl_CurrentDate->setGeometry(QRect(1817, 42, 141, 51));
+        QFont font2;
+        font2.setPointSize(12);
+        lbl_CurrentDate->setFont(font2);
         MainWindow->setCentralWidget(centralwidget);
         label->raise();
         pushButton->raise();
         pushButton_2->raise();
         lbl1->raise();
+        lbl_CurrentTime->raise();
+        lbl_CurrentDate->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 1920, 22));
@@ -118,6 +135,8 @@ public:
         pushButton_2->setText(QString());
         lbl1->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         label->setText(QString());
+        lbl_CurrentTime->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        lbl_CurrentDate->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
     } // retranslateUi
 
 };

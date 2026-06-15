@@ -127,10 +127,49 @@ outline: none;
      <pixmap resource="res.qrc">:/new/prefix1/Resources/Frame 2.png</pixmap>
     </property>
    </widget>
+   <widget class="QLabel" name="lbl_CurrentTime">
+    <property name="geometry">
+     <rect>
+      <x>1775</x>
+      <y>-5</y>
+      <width>181</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_CurrentDate">
+    <property name="geometry">
+     <rect>
+      <x>1817</x>
+      <y>42</y>
+      <width>141</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
    <zorder>label</zorder>
    <zorder>pushButton</zorder>
    <zorder>pushButton_2</zorder>
    <zorder>lbl1</zorder>
+   <zorder>lbl_CurrentTime</zorder>
+   <zorder>lbl_CurrentDate</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

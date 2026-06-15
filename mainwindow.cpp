@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "plc_network.h"
 #include "./ui_mainwindow.h"
+#include <QDateTime>
+#include <QTimer>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -11,6 +13,22 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(plc, &PlcNetwork::dataReceived,
             this, &MainWindow::onPlcDataReceived);
+
+    QTimer *timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, [=]() {
+        // Получаем текущее время
+        QDateTime time = QDateTime::currentDateTime();
+
+        // Форматируем часы, минуты и секунды
+        QString textTime = time.toString("hh:mm:ss");
+        QString textDate = time.toString("dd.MM.yyyy");
+        // Выводим в QLabel
+        ui->lbl_CurrentTime->setText(textTime);
+        ui->lbl_CurrentDate->setText(textDate);
+    });
+
+    // Запускаем таймер с интервалом в 1 секунду (1000 мс)
+    timer->start(1000);
 }
 
 MainWindow::~MainWindow()
