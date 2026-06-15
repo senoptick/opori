@@ -41,96 +41,46 @@ MainWindow::~MainWindow()
 
 void MainWindow::onPlcDataReceived(const QByteArray &data)
 {
-    m_buffer.append(data);
+    if (data.size() < 9) {
+        qDebug() << "Bad packet size:" << data.size();
+        return;
+    }
 
-    while (m_buffer.size() >= 5) // минимальный пакет
-    {
-        // ищем начало пакета
-        int start = m_buffer.indexOf(char(0xAA));
-        if (start == -1) {
-            m_buffer.clear();
-            return;
-        }
+    quint8 cmd = static_cast<quint8>(data[0]);
 
-        if (start > 0)
-            m_buffer.remove(0, start);
+    if (cmd == 5) { // telemetry
+        quint32 cycleTime = 0;
+        quint32 partsCount = 0;
 
-        if (m_buffer.size() < 5)
-            return;
+        memcpy(&cycleTime, data.constData() + 1, 4);
+        memcpy(&partsCount, data.constData() + 5, 4);
 
-        quint8 type = (quint8)m_buffer[1];
-        quint8 len  = (quint8)m_buffer[2];
+        // если PLC little-endian — ок
+        // если big-endian — нужно qFromBigEndian
 
-        int packetSize = 1 + 1 + 1 + len + 1;
-
-        if (m_buffer.size() < packetSize)
-            return;
-
-        // проверка конца пакета
-        if ((quint8)m_buffer[packetSize - 1] != 0x55) {
-            m_buffer.remove(0, 1); // сдвиг
-            continue;
-        }
-
-        QByteArray payload = m_buffer.mid(3, len);
-
-        QDataStream in(payload);
-        in.setByteOrder(QDataStream::BigEndian);
-
-        qint32 value;
-        in >> value;
-
-        // 👇 ОБРАБОТКА ТИПОВ
-        switch (type)
-        {
-        case 1: // время цикла
-            ui->lbl_CycleTime->setText(QString::number(value) + " ms");
-            break;
-
-        case 2: // количество заготовок
-            ui->lbl_PartsCount->setText(QString::number(value));
-            break;
-
-        default:
-            qDebug() << "Неизвестный тип:" << type;
-            break;
-        }
-
-        // для отладки (hex)
-        ui->lbl_CycleTime->setText(QString::fromUtf8(m_buffer.left(packetSize).toHex(' ')));
-
-        m_buffer.remove(0, packetSize);
+        ui->lbl_CycleTime->setText(QString::number(cycleTime) + " ms");
+        ui->lbl_PartsCount->setText(QString::number(partsCount));
     }
 }
 
 void MainWindow::on_pushButton_clicked()
 {
     if (!plc) return;
-
     QByteArray packet;
-    packet.append(char(0xAA));
-    packet.append(char(10)); // CmdStart
-    packet.append(char(0));  // без данных
-    packet.append(char(0x55));
-
+    packet.append(char(0x01));
     plc->sendCommand(packet);
 
-    qDebug() << "START отправлен";
+    qDebug() << "Отправлено на PLC →" << packet.trimmed();
 }
 
 
 void MainWindow::on_pushButton_2_clicked()
 {
     if (!plc) return;
-
     QByteArray packet;
-    packet.append(char(0xAA));
-    packet.append(char(11)); // CmdStop
-    packet.append(char(0));
-    packet.append(char(0x55));
-
+    packet.append(char(0x02));
     plc->sendCommand(packet);
 
-    qDebug() << "STOP отправлен";
+    qDebug() << "Отправлено на PLC →" << packet.trimmed();
 }
 
