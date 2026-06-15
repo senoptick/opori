@@ -31,6 +31,7 @@ public:
     QLabel *lbl_CurrentTime;
     QLabel *lbl_CurrentDate;
     QLabel *lbl_PartsCount;
+    QLabel *label_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -113,6 +114,9 @@ public:
         lbl_PartsCount->setObjectName("lbl_PartsCount");
         lbl_PartsCount->setGeometry(QRect(1290, 180, 211, 61));
         lbl_PartsCount->setFont(font);
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(1620, 220, 151, 31));
         MainWindow->setCentralWidget(centralwidget);
         label->raise();
         pushButton->raise();
@@ -121,6 +125,7 @@ public:
         lbl_CurrentTime->raise();
         lbl_CurrentDate->raise();
         lbl_PartsCount->raise();
+        label_2->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 1920, 22));
@@ -144,6 +149,7 @@ public:
         lbl_CurrentTime->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         lbl_CurrentDate->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         lbl_PartsCount->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
     } // retranslateUi
 
 };

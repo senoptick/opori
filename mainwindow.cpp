@@ -41,13 +41,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::onPlcDataReceived(const QByteArray &data)
 {
-    if (data.size() < 9) {
-        qDebug() << "Bad packet size:" << data.size();
-        return;
-    }
+    // if (data.size() < 9) {
+    //     qDebug() << "Bad packet size:" << data.size();
+    //     return;
+    // }
 
     quint8 cmd = static_cast<quint8>(data[0]);
-
+    ui->label_2->setText(data);
     // if (cmd == 5) { // telemetry
     if (true){
         quint32 cycleTime = 0;
